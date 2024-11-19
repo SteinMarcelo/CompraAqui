@@ -1,0 +1,20 @@
+import { RootSiblingParent } from "react-native-root-siblings";
+import Routes from "./src/routes";
+import React from "react";
+import { UserProvider } from "./src/contexts/UserContext";
+import { CartContextProvider } from "./src/contexts/CartContext";
+import { OrderProvider } from "./src/contexts/OrderContext"; // Importando o OrderProvider
+
+export default function App() {
+  return (
+    <RootSiblingParent>
+      <UserProvider>
+        <CartContextProvider>
+          <OrderProvider>
+            <Routes />
+          </OrderProvider>
+        </CartContextProvider>
+      </UserProvider>
+    </RootSiblingParent>
+  );
+}
